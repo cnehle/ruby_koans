@@ -15,6 +15,9 @@
 #
 def triangle(a, b, c)
   result = :default_value
+  if a <= 0 || b <= 0 || c <= 0 || a+b<=c || a+c<=b || b+c<=a
+    raise TriangleError, "Triangle Error accured"
+  end
   if a == b && b == c
     result = :equilateral
   elsif a == b || b == c || a == c
@@ -22,6 +25,7 @@ def triangle(a, b, c)
   else
     result = :scalene
   end
+  
   return result
 end
 
